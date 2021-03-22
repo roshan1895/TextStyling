@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TextStyling</string>
+    <string name="demo_txt">This is Demo Spannable String</string>
+</resources>
