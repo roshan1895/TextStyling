@@ -5,10 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.view.Display;
 
 import java.util.ArrayList;
@@ -33,9 +39,18 @@ public class MainActivity extends AppCompatActivity {
     }
     void updateList()
     {
-        Model model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new ForegroundColorSpan(Color.RED),13,22,SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE));
+        Model model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new ForegroundColorSpan(Color.RED),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
        list.add(model);
-
+       model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new StyleSpan(Typeface.BOLD_ITALIC),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
+        list.add(model);
+        model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new BackgroundColorSpan(Color.RED),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
+        list.add(model);
+        model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new RelativeSizeSpan(2f),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
+        list.add(model);
+        model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new UnderlineSpan(),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
+        list.add(model);
+        model=new Model(getSpannableString(getResources().getString(R.string.demo_txt),new StrikethroughSpan(),13,22,SpannableString.SPAN_EXCLUSIVE_INCLUSIVE));
+        list.add(model);
         adapter.notifyDataSetChanged();
 
     }
